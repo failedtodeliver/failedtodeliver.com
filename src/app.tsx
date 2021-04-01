@@ -83,6 +83,10 @@ const App = () => {
   );
   const [combineSymbolsByDate, setCombineSymbolsByDate] = React.useState(true);
 
+  React.useEffect(() => {
+    history.pushState(null, "", `?symbols=${selectedTickers.join(",")}`);
+  }, [selectedTickers]);
+
   const [tickers, rows] = React.useMemo(() => {
     const rawReport =
       failureReports[currentReport as keyof typeof failureReports];
