@@ -20,6 +20,8 @@ import {
 } from "@ant-design/icons";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import githubLogo from "./assets/github.png";
+
 import cnsfails202012a from "./data/cnsfails202012a.txt";
 import cnsfails202012b from "./data/cnsfails202012b.txt";
 import cnsfails202101a from "./data/cnsfails202101a.txt";
@@ -72,7 +74,7 @@ const defaultSelectedTickers =
     .map((symbol) => symbol.toUpperCase()) ?? [];
 
 const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const { Header, Footer, Content, Sider } = Layout;
 
 const App = () => {
   const [currentReport, setCurrentReport] = React.useState("cnsfails202103a");
@@ -294,6 +296,11 @@ const App = () => {
                   }
                 />
                 <div style={{ marginTop: 16 }}>Combine Symbols by Date</div>
+                <div style={{ marginTop: 16 }}>
+                  <a href="https://github.com/failedtodeliver/failedtodeliver.com">
+                    <img src={githubLogo} />
+                  </a>
+                </div>
               </div>
             </Menu>
           </Sider>
