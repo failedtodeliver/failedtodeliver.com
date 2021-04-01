@@ -242,8 +242,8 @@ const App = () => {
   return (
     <Router>
       <Layout className="layout">
-        <Header className="header">
-          <Menu style={{ height: "unset" }} theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+        <Header style={{ height: "unset" }} className="header">
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
             <Select
               mode="multiple"
               style={{ width: "100%" }}
