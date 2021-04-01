@@ -93,8 +93,8 @@ const App = () => {
           date: string;
           symbol: string;
           quantity: number;
-          cost: number;
-          formattedCost: string;
+          price: number;
+          formattedPrice: string;
         }[];
       };
     } = {};
@@ -104,8 +104,8 @@ const App = () => {
         date: string;
         symbol: string;
         quantity: number;
-        cost: number;
-        formattedCost: string;
+        price: number;
+        formattedPrice: string;
       }[];
     } = {};
 
@@ -141,22 +141,22 @@ const App = () => {
           groupedByDate[dateString] = [];
         }
 
-        const cost = parseInt(columns[3], 10) * parseFloat(columns[5]);
+        const price = parseInt(columns[3], 10) * parseFloat(columns[5]);
 
         groupedByTicker[columns[2]][dateString].push({
-          cost,
+          price,
           date: moment(dateString).format("MMM DD"),
           symbol: columns[2],
           quantity: parseInt(columns[3], 10),
-          formattedCost: formatter.format(cost),
+          formattedPrice: formatter.format(price),
         });
 
         groupedByDate[dateString].push({
-          cost,
+          price,
           symbol: "ALL",
           date: moment(dateString).format("MMM DD"),
           quantity: parseInt(columns[3], 10),
-          formattedCost: formatter.format(cost),
+          formattedPrice: formatter.format(price),
         });
       });
 
@@ -169,10 +169,10 @@ const App = () => {
                 date: curr.date,
                 symbol: curr.symbol,
                 quantity: prev.quantity + curr.quantity,
-                cost: prev.cost + curr.cost,
-                formattedCost: formatter.format(prev.cost + curr.cost),
+                price: prev.price + curr.price,
+                formattedPrice: formatter.format(prev.price + curr.price),
               }),
-              { date: "", symbol: "", quantity: 0, cost: 0, formattedCost: "" }
+              { date: "", symbol: "", quantity: 0, price: 0, formattedPrice: "" }
             )
           )
         )) ||
@@ -184,10 +184,10 @@ const App = () => {
                 date: curr.date,
                 symbol: curr.symbol,
                 quantity: prev.quantity + curr.quantity,
-                cost: prev.cost + curr.cost,
-                formattedCost: formatter.format(prev.cost + curr.cost),
+                price: prev.price + curr.price,
+                formattedPrice: formatter.format(prev.price + curr.price),
               }),
-              { date: "", symbol: "", quantity: 0, cost: 0, formattedCost: "" }
+              { date: "", symbol: "", quantity: 0, price: 0, formattedPrice: "" }
             )
           )
         )
@@ -217,11 +217,11 @@ const App = () => {
       },
     },
     {
-      title: "Cost",
-      dataIndex: "formattedCost",
-      key: "cost",
+      title: "Price",
+      dataIndex: "formattedPrice",
+      key: "price",
       sorter: {
-        compare: (a: any, b: any) => a.cost - b.cost,
+        compare: (a: any, b: any) => a.price - b.price,
         multiple: 1,
       },
     },
@@ -243,7 +243,7 @@ const App = () => {
     <Router>
       <Layout className="layout">
         <Header className="header">
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+          <Menu style={{ height: "unset" }} theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
             <Select
               mode="multiple"
               style={{ width: "100%" }}
