@@ -95,8 +95,8 @@ const App = () => {
           date: string;
           symbol: string;
           quantity: number;
-          price: number;
-          formattedPrice: string;
+          notional: number;
+          formattedNotional: string;
         }[];
       };
     } = {};
@@ -106,8 +106,8 @@ const App = () => {
         date: string;
         symbol: string;
         quantity: number;
-        price: number;
-        formattedPrice: string;
+        notional: number;
+        formattedNotional: string;
       }[];
     } = {};
 
@@ -143,22 +143,22 @@ const App = () => {
           groupedByDate[dateString] = [];
         }
 
-        const price = parseInt(columns[3], 10) * parseFloat(columns[5]);
+        const notional = parseInt(columns[3], 10) * parseFloat(columns[5]);
 
         groupedByTicker[columns[2]][dateString].push({
-          price,
+          notional,
           date: moment(dateString).format("MMM DD"),
           symbol: columns[2],
           quantity: parseInt(columns[3], 10),
-          formattedPrice: formatter.format(price),
+          formattedNotional: formatter.format(notional),
         });
 
         groupedByDate[dateString].push({
-          price,
+          notional,
           symbol: "ALL",
           date: moment(dateString).format("MMM DD"),
           quantity: parseInt(columns[3], 10),
-          formattedPrice: formatter.format(price),
+          formattedNotional: formatter.format(notional),
         });
       });
 
@@ -171,10 +171,10 @@ const App = () => {
                 date: curr.date,
                 symbol: curr.symbol,
                 quantity: prev.quantity + curr.quantity,
-                price: prev.price + curr.price,
-                formattedPrice: formatter.format(prev.price + curr.price),
+                notional: prev.notional + curr.notional,
+                formattedNotional: formatter.format(prev.notional + curr.notional),
               }),
-              { date: "", symbol: "", quantity: 0, price: 0, formattedPrice: "" }
+              { date: "", symbol: "", quantity: 0, notional: 0, formattedNotional: "" }
             )
           )
         )) ||
@@ -186,10 +186,10 @@ const App = () => {
                 date: curr.date,
                 symbol: curr.symbol,
                 quantity: prev.quantity + curr.quantity,
-                price: prev.price + curr.price,
-                formattedPrice: formatter.format(prev.price + curr.price),
+                notional: prev.notional + curr.notional,
+                formattedNotional: formatter.format(prev.notional + curr.notional),
               }),
-              { date: "", symbol: "", quantity: 0, price: 0, formattedPrice: "" }
+              { date: "", symbol: "", quantity: 0, notional: 0, formattedNotional: "" }
             )
           )
         )
@@ -219,11 +219,11 @@ const App = () => {
       },
     },
     {
-      title: "Price",
-      dataIndex: "formattedPrice",
-      key: "price",
+      title: "Notional",
+      dataIndex: "formattedNotional",
+      key: "notional",
       sorter: {
-        compare: (a: any, b: any) => a.price - b.price,
+        compare: (a: any, b: any) => a.notional - b.notional,
         multiple: 1,
       },
     },
