@@ -176,7 +176,7 @@ const App = () => {
                 symbol: curr.symbol,
                 quantity: prev.quantity + curr.quantity,
                 notional: prev.notional + curr.notional,
-                formattedNotional: formatter.format(prev.notional + curr.notional),
+                formattedNotional: formatter.format(Math.round(prev.notional + curr.notional)),
               }),
               { date: "", symbol: "", quantity: 0, notional: 0, formattedNotional: "" }
             )
@@ -191,7 +191,7 @@ const App = () => {
                 symbol: curr.symbol,
                 quantity: prev.quantity + curr.quantity,
                 notional: prev.notional + curr.notional,
-                formattedNotional: formatter.format(prev.notional + curr.notional),
+                formattedNotional: formatter.format(Math.round(prev.notional + curr.notional)),
               }),
               { date: "", symbol: "", quantity: 0, notional: 0, formattedNotional: "" }
             )
