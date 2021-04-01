@@ -8,13 +8,13 @@ module.exports = {
   output: {
     globalObject: "self",
     filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "docs"),
+    path: path.resolve(__dirname, "dist"),
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
   devServer: {
-    contentBase: path.join(__dirname, 'docs'),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
   },
