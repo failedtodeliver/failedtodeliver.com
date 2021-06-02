@@ -29,6 +29,9 @@ import cnsfails202101b from "./data/cnsfails202101b.txt";
 import cnsfails202102a from "./data/cnsfails202102a.txt";
 import cnsfails202102b from "./data/cnsfails202102b.txt";
 import cnsfails202103a from "./data/cnsfails202103a.txt";
+import cnsfails202103b from "./data/cnsfails202103b.txt";
+import cnsfails202104a from "./data/cnsfails202104a.txt";
+import cnsfails202104b from "./data/cnsfails202104b.txt";
 
 const failureReports = {
   cnsfails202012a,
@@ -38,6 +41,9 @@ const failureReports = {
   cnsfails202102a,
   cnsfails202102b,
   cnsfails202103a,
+  cnsfails202103b,
+  cnsfails202104a,
+  cnsfails202104b,
 };
 
 var formatter = new Intl.NumberFormat("en-US", {
