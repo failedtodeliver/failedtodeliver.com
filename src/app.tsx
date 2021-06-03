@@ -32,6 +32,7 @@ import cnsfails202103a from "./data/cnsfails202103a.txt";
 import cnsfails202103b from "./data/cnsfails202103b.txt";
 import cnsfails202104a from "./data/cnsfails202104a.txt";
 import cnsfails202104b from "./data/cnsfails202104b.txt";
+import cnsfails202105a from "./data/cnsfails202105a.txt";
 
 const failureReports = {
   cnsfails202012a,
@@ -44,6 +45,7 @@ const failureReports = {
   cnsfails202103b,
   cnsfails202104a,
   cnsfails202104b,
+  cnsfails202105a,
 };
 
 var formatter = new Intl.NumberFormat("en-US", {
