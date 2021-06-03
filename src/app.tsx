@@ -85,7 +85,7 @@ const { SubMenu } = Menu;
 const { Header, Footer, Content, Sider } = Layout;
 
 const App = () => {
-  const [currentReport, setCurrentReport] = React.useState("cnsfails202103a");
+  const [currentReport, setCurrentReport] = React.useState("cnsfails202105a");
   const [selectedTickers, setSelectedTickers] = React.useState<string[]>(
     defaultSelectedTickers
   );
