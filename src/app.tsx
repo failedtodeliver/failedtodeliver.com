@@ -36,6 +36,9 @@ import cnsfails202105a from "./data/cnsfails202105a.txt";
 import cnsfails202105b from "./data/cnsfails202105b.txt";
 import cnsfails202106a from "./data/cnsfails202106a.txt";
 import cnsfails202106b from "./data/cnsfails202106b.txt";
+import cnsfails202107a from "./data/cnsfails202107a.txt";
+import cnsfails202107b from "./data/cnsfails202107b.txt";
+import cnsfails202108a from "./data/cnsfails202108a.txt";
 
 const failureReports = {
   cnsfails202012a,
@@ -52,6 +55,9 @@ const failureReports = {
   cnsfails202105b,
   cnsfails202106a,
   cnsfails202106b,
+  cnsfails202107a,
+  cnsfails202107b,
+  cnsfails202108a,
 };
 
 var formatter = new Intl.NumberFormat("en-US", {
@@ -91,7 +97,7 @@ const { SubMenu } = Menu;
 const { Header, Footer, Content, Sider } = Layout;
 
 const App = () => {
-  const [currentReport, setCurrentReport] = React.useState("cnsfails202106b");
+  const [currentReport, setCurrentReport] = React.useState("cnsfails202108a");
   const [selectedTickers, setSelectedTickers] = React.useState<string[]>(
     defaultSelectedTickers
   );
