@@ -39,6 +39,13 @@ import cnsfails202106b from "./data/cnsfails202106b.txt";
 import cnsfails202107a from "./data/cnsfails202107a.txt";
 import cnsfails202107b from "./data/cnsfails202107b.txt";
 import cnsfails202108a from "./data/cnsfails202108a.txt";
+import cnsfails202108b from "./data/cnsfails202108b.txt";
+import cnsfails202109a from "./data/cnsfails202109a.txt";
+import cnsfails202109b from "./data/cnsfails202109b.txt";
+import cnsfails202110a from "./data/cnsfails202110a.txt";
+import cnsfails202110b from "./data/cnsfails202110b.txt";
+import cnsfails202111a from "./data/cnsfails202111a.txt";
+import cnsfails202111b from "./data/cnsfails202111b.txt";
 
 const failureReports = {
   cnsfails202012a,
@@ -58,7 +65,16 @@ const failureReports = {
   cnsfails202107a,
   cnsfails202107b,
   cnsfails202108a,
+  cnsfails202108b,
+  cnsfails202109a,
+  cnsfails202109b,
+  cnsfails202110a,
+  cnsfails202110b,
+  cnsfails202111a,
+  cnsfails202111b,
 };
+
+const reportKeys = Object.keys(failureReports);
 
 var formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -97,7 +113,9 @@ const { SubMenu } = Menu;
 const { Header, Footer, Content, Sider } = Layout;
 
 const App = () => {
-  const [currentReport, setCurrentReport] = React.useState("cnsfails202108a");
+  const [currentReport, setCurrentReport] = React.useState(
+    reportKeys[reportKeys.length - 1]
+  );
   const [selectedTickers, setSelectedTickers] = React.useState<string[]>(
     defaultSelectedTickers
   );
@@ -196,9 +214,17 @@ const App = () => {
                 symbol: curr.symbol,
                 quantity: prev.quantity + curr.quantity,
                 notional: prev.notional + curr.notional,
-                formattedNotional: formatter.format(Math.round(prev.notional + curr.notional)),
+                formattedNotional: formatter.format(
+                  Math.round(prev.notional + curr.notional)
+                ),
               }),
-              { date: "", symbol: "", quantity: 0, notional: 0, formattedNotional: "" }
+              {
+                date: "",
+                symbol: "",
+                quantity: 0,
+                notional: 0,
+                formattedNotional: "",
+              }
             )
           )
         )) ||
@@ -211,9 +237,17 @@ const App = () => {
                 symbol: curr.symbol,
                 quantity: prev.quantity + curr.quantity,
                 notional: prev.notional + curr.notional,
-                formattedNotional: formatter.format(Math.round(prev.notional + curr.notional)),
+                formattedNotional: formatter.format(
+                  Math.round(prev.notional + curr.notional)
+                ),
               }),
-              { date: "", symbol: "", quantity: 0, notional: 0, formattedNotional: "" }
+              {
+                date: "",
+                symbol: "",
+                quantity: 0,
+                notional: 0,
+                formattedNotional: "",
+              }
             )
           )
         )
